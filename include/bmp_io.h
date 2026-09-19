@@ -4,5 +4,5 @@
 
 #include "image.h"
 
-Image ReadBMP(const std::string& path);
-void WriteBMP(const Image& image, const std::string& path);
+Image ReadBMP(const std::string &path);
+void WriteBMP(const Image &image, const std::string &path);

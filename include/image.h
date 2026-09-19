@@ -17,19 +17,25 @@ public:
       : width_(width), height_(height), pixels_(width * height, fill) {}
 
   size_t Width() const { return width_; }
-
   size_t Height() const { return height_; }
 
   Color GetPixel(size_t x, size_t y) const {
     CheckBounds(x, y);
-    size_t ind = y * width_ + x;
-    return pixels_[ind];
+    return pixels_[y * width_ + x];
+  }
+
+  Color GetPixelClamped(int x, int y) const {
+    if (width_ == 0 || height_ == 0) {
+      throw std::out_of_range("GetPixelClamped on empty image");
+    }
+    int cx = std::clamp(x, 0, static_cast<int>(width_) - 1);
+    int cy = std::clamp(y, 0, static_cast<int>(height_) - 1);
+    return pixels_[static_cast<size_t>(cy) * width_ + static_cast<size_t>(cx)];
   }
 
   void SetPixel(size_t x, size_t y, Color color) {
     CheckBounds(x, y);
-    size_t ind = y * width_ + x;
-    pixels_[ind] = color;
+    pixels_[y * width_ + x] = color;
   }
 
   std::vector<Color> &Pixels() { return pixels_; }
@@ -39,7 +45,6 @@ public:
 
 private:
   size_t width_, height_;
-
   std::vector<Color> pixels_;
 
   void CheckBounds(size_t x, size_t y) const {

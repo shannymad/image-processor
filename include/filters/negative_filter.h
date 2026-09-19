@@ -1,8 +1,8 @@
 #pragma once
 #include "filter.h"
 
-class NegativeFilter : public Filter {
+class Negative : public Filter {
 public:
   void Apply(Image &image) override;
-  ~NegativeFilter() override = default;
+  ~Negative() override = default;
 };

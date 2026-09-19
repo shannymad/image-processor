@@ -1,9 +1,9 @@
-#include "include/filters/crop_filter.h"
+#include "filters/crop_filter.h"
 #include <algorithm>
 
 Crop::Crop(size_t width, size_t height) : width_(width), height_(height) {}
 
-Crop::Apply(Image &image) {
+void Crop::Apply(Image &image) {
   size_t actual_width = std::min(width_, image.Width());
   size_t actual_height = std::min(height_, image.Height());
 

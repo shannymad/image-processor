@@ -1,4 +1,4 @@
-#include "include/filters/grayscale_filter.h"
+#include "filters/grayscale_filter.h"
 
 void GrayScale::Apply(Image &image) {
   for (Color &c : image.Pixels()) {

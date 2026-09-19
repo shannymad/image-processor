@@ -39,8 +39,6 @@ void Write32(std::ofstream &out, uint32_t value) {
   out.put(static_cast<char>((value >> 24) & 0xFF));
 }
 
-}
-
 Image ReadBMP(const std::string &path) {
   std::ifstream in(path, std::ios::binary);
   if (!in) {

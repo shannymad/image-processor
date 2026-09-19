@@ -1,0 +1,33 @@
+# Build
+build/
+cmake-build-*/
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+
+# IDE
+.vscode/
+.idea/
+*.xcodeproj/
+*.xcworkspace/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs, temp
+*.log
+*.tmp
+*.swp
+*~
+
+# Compiled
+compile_commands.json
+.cache/
+
+*.bmp
+!tests/assets/*.bmp
